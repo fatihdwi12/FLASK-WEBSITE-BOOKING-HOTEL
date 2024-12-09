@@ -1,0 +1,56 @@
+/* Background styling */
+body {
+  background: linear-gradient(135deg, #007bff, #6c63ff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+}
+
+/* Login container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+}
+
+/* Card styling */
+.login-card {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Input focus styling */
+.form-control:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+}
+
+/* Button styling */
+.btn-primary {
+  background: #6c63ff;
+  border: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: #007bff;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,73 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+.hotel-detail {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+/* Image Gallery */
+.hotel-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hotel-images .image-thumbnail {
+  position: relative;
+  flex: 1 1 20%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hotel-images .image-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.hotel-images img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Modal Preview */
+.modal-body {
+  text-align: center;
+}
+
+#imagePreview {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Hotel Info Section */
+h4 {
+  font-size: 24px;
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+.text-center a {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.text-center a:hover {
+  background-color: #218838;
+}

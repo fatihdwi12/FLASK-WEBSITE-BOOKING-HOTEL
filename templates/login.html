@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Hotel Booking</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      href="{{ url_for('static', filename='css/login.css') }}"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div
+      class="login-container d-flex justify-content-center align-items-center">
+      <div class="card login-card shadow-lg">
+        <div class="card-body">
+          <h2 class="text-center text-primary mb-4">Welcome Back!</h2>
+          <p class="text-muted text-center mb-4">
+            Login to manage your bookings
+          </p>
+
+          <!-- Flash Messages -->
+          {% with messages = get_flashed_messages(with_categories=true) %} {% if
+          messages %}
+          <div
+            class="alert alert-{{ messages[0][0] }} alert-dismissible fade show"
+            role="alert">
+            {{ messages[0][1] }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"></button>
+          </div>
+          {% endif %} {% endwith %}
+
+          <!-- Login Form -->
+          <form method="POST">
+            <div class="form-group mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required />
+            </div>
+            <div class="form-group mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required />
+            </div>
+            <!-- Tambahkan input tersembunyi untuk parameter 'next' -->
+            <input
+              type="hidden"
+              name="next"
+              value="{{ request.args.get('next') }}" />
+            <button type="submit" class="btn btn-primary btn-block">
+              Login
+            </button>
+          </form>
+
+          <p class="text-center mt-3">
+            Don't have an account? <a href="/register">Sign up here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

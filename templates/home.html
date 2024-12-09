@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}" />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <!-- Hero Section & Carousel -->
+    <div class="hero-carousel-wrapper">
+      <!-- Carousel Section -->
+      <div class="pic-ctn">
+        <img
+          src="{{ url_for('static', filename='images/interior (4).jpg') }}"
+          alt="Image 1"
+          class="pic" />
+        <img
+          src="{{ url_for('static', filename='images/ganti2.jpg') }}"
+          alt="Image 2"
+          class="pic" />
+        <img
+          src="{{ url_for('static', filename='images/kamar2.jpg') }}"
+          alt="Image 3"
+          class="pic" />
+        <img
+          src="{{ url_for('static', filename='images/luar.jpg') }}"
+          alt="Image 4"
+          class="pic" />
+        <img
+          src="{{ url_for('static', filename='images/1.jpg') }}"
+          alt="Image 5"
+          class="pic" />
+      </div>
+
+      <!-- Hero Section -->
+      <div class="hero d-flex justify-content-center align-items-center">
+        <div class="text-center">
+          <h1>Welcome to Our Website</h1>
+          <p>Your journey begins here</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fitur Utama Section -->
+    <section class="features py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">Featured Hotels</h2>
+        <div class="row">
+          {% for hotel in hotels %}
+          <div class="col-md-4 mb-4">
+            <div class="card feature-card">
+              <div class="card-image">
+                <!-- Menampilkan gambar pertama -->
+                <img
+                  src="{{ url_for('static', filename='images/' + hotel.images.split(',')[0] if hotel.images else 'default.jpg') }}"
+                  alt="{{ hotel.name }}"
+                  class="img-fluid" />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ hotel.name }}</h5>
+                <p class="card-text">
+                  <strong>Location: </strong>{{ hotel.location }}
+                </p>
+                <p class="card-text">{{ hotel.description[:150] }}...</p>
+                <p class="card-text">
+                  <strong>Price: </strong>Rp.{{ hotel.price_per_night }}k/night
+                </p>
+                <a href="/hotel/{{ hotel.id }}" class="btn btn-primary"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">What Our Guests Say</h2>
+        <div class="row">
+          <!-- Testimonial 1 -->
+          <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+              <img
+                src="{{ url_for('static', filename='images/testi4.jpg') }}"
+                alt="Guest 1"
+                class="card-img-top rounded-circle mx-auto mt-4"
+                style="width: 100px; height: 100px" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Aryo</h5>
+                <p class="card-text">
+                  "Hotel yang bagus dan indah, platform pelayanan yang membantu
+                  dan menyenangkan."
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+              <img
+                src="{{ url_for('static', filename='images/testi1.jpg') }}"
+                alt="Guest 2"
+                class="card-img-top rounded-circle mx-auto mt-4"
+                style="width: 100px; height: 100px" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Desi</h5>
+                <p class="card-text">
+                  "Hotel yang indah dan menakjubkan! kalian harus kemari membawa
+                  keluarga dan pasangan"
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+              <img
+                src="{{ url_for('static', filename='images/testi2.jpg') }}"
+                alt="Guest 3"
+                class="card-img-top rounded-circle mx-auto mt-4"
+                style="width: 100px; height: 100px" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Kla Kurnia</h5>
+                <p class="card-text">
+                  "Pemandangan hotel yang terbaik! menyajikan banyak keindahan
+                  dan kemudahan.Platform yang membantu dan memudahkan "
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="col-md-3 mb-4">
+            <div class="card shadow-sm">
+              <img
+                src="{{ url_for('static', filename='images/testi3.jpg') }}"
+                alt="Guest 4"
+                class="card-img-top rounded-circle mx-auto mt-4"
+                style="width: 100px; height: 100px" />
+              <div class="card-body text-center">
+                <h5 class="card-title">Rifad</h5>
+                <p class="card-text">
+                  "Dengan platform ini memudahkan saya untuk mendapatkah pilihan
+                  hotel yang sesuai dengan kebutuhan saya."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel Section with Postcard Size Images -->
+    <section class="carousel-postcard py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Our Gallery</h2>
+        <div
+          id="carouselExamplePostcard"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="2000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="{{ url_for('static', filename='images/gambar1.jpg') }}"
+                class="d-block w-100 postcard-img"
+                alt="Postcard Image 1" />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="{{ url_for('static', filename='images/gambar2.jpg') }}"
+                class="d-block w-100 postcard-img"
+                alt="Postcard Image 2" />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="{{ url_for('static', filename='images/gambar3.jpg') }}"
+                class="d-block w-100 postcard-img"
+                alt="Postcard Image 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer bg-dark text-white py-3">
+      <div class="container text-center">
+        <p>&copy; 2024 Hotel Management System. All rights reserved.</p>
+        <p>
+          Contact us:
+          <a href="mailto:info@hotelsystem.com" class="text-white"
+            >info@hotelsystem.com</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

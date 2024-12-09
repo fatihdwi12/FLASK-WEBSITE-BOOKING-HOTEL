@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ hotel.name }} - Detail</title>
+  </head>
+  <body>
+    <h1>{{ hotel.name }}</h1>
+    <p>{{ hotel.description }}</p>
+    <p><strong>Location:</strong> {{ hotel.location }}</p>
+    <p><strong>Price:</strong> ${{ hotel.price_per_night }} per night</p>
+
+    <div class="hotel-gallery">
+      {% if hotel.images %} {% for image in hotel.images.split(',') %}
+      <img
+        src="{{ url_for('static', filename='images/' + image) }}"
+        alt="{{ hotel.name }}" />
+      {% endfor %} {% else %}
+      <p>No images available</p>
+      {% endif %}
+    </div>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </body>
+</html>

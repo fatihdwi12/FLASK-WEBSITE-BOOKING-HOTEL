@@ -1,0 +1,106 @@
+/* Styling untuk navbar */
+.navbar {
+  background-color: #343a40 !important;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  margin-left: auto; /* Memastikan navbar items ke kanan */
+  display: flex;
+  align-items: center; /* Untuk memastikan tombol sejajar secara vertikal */
+}
+
+.navbar-nav .nav-item {
+  margin-left: 15px; /* Spasi antar item navbar */
+}
+
+.navbar-nav .nav-link {
+  color: #f8f9fa !important;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff !important;
+  background-color: #ffffff;
+}
+
+/* Styling untuk tombol Logout */
+.navbar-nav .nav-item .nav-link.logout-btn {
+  color: #dc3545 !important;
+}
+
+.navbar-nav .nav-item .nav-link.logout-btn:hover {
+  color: #ffffff;
+  background-color: #dc3545;
+  border-radius: 5px;
+}
+
+/* Responsif */
+@media (max-width: 767px) {
+  .navbar-nav {
+    flex-direction: column; /* Menyusun item navbar secara vertikal pada tampilan mobile */
+  }
+  .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-bottom: 10px; /* Menambahkan jarak antara navbar items pada tampilan mobile */
+  }
+}
+
+/* Styling untuk tabel booking */
+.table {
+  margin-top: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table a.btn {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.table .btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+
+.table .btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.table .btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.table .btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Styling untuk judul halaman */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}
